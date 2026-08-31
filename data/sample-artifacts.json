@@ -1,0 +1,284 @@
+[
+  {
+    "id": "artifact-01",
+    "name": "天涯社区",
+    "category": "待分类",
+    "lifecycle": {
+      "born": null,
+      "ended": null,
+      "status": "待核验"
+    },
+    "verification_status": "demo-unverified",
+    "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
+    "product_dna": [
+      "待研究"
+    ],
+    "why_it_mattered": [
+      "待研究"
+    ],
+    "why_it_disappeared": [
+      "待研究"
+    ],
+    "what_survived": [
+      "待研究"
+    ],
+    "ai_changes": [
+      "待研究"
+    ],
+    "revival": {
+      "score": null,
+      "score_status": "Demo score — methodology under development",
+      "blueprint": {
+        "keep": [
+          "待生成"
+        ],
+        "kill": [
+          "待生成"
+        ],
+        "ai_mutation": [
+          "待生成"
+        ],
+        "mvp_features": [
+          "待生成"
+        ]
+      }
+    },
+    "rights_status": "unknown",
+    "sources": []
+  },
+  {
+    "id": "artifact-02",
+    "name": "虾米音乐",
+    "category": "待分类",
+    "lifecycle": {
+      "born": null,
+      "ended": null,
+      "status": "待核验"
+    },
+    "verification_status": "demo-unverified",
+    "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
+    "product_dna": [
+      "待研究"
+    ],
+    "why_it_mattered": [
+      "待研究"
+    ],
+    "why_it_disappeared": [
+      "待研究"
+    ],
+    "what_survived": [
+      "待研究"
+    ],
+    "ai_changes": [
+      "待研究"
+    ],
+    "revival": {
+      "score": null,
+      "score_status": "Demo score — methodology under development",
+      "blueprint": {
+        "keep": [
+          "待生成"
+        ],
+        "kill": [
+          "待生成"
+        ],
+        "ai_mutation": [
+          "待生成"
+        ],
+        "mvp_features": [
+          "待生成"
+        ]
+      }
+    },
+    "rights_status": "unknown",
+    "sources": []
+  },
+  {
+    "id": "artifact-03",
+    "name": "百度空间",
+    "category": "待分类",
+    "lifecycle": {
+      "born": null,
+      "ended": null,
+      "status": "待核验"
+    },
+    "verification_status": "demo-unverified",
+    "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
+    "product_dna": [
+      "待研究"
+    ],
+    "why_it_mattered": [
+      "待研究"
+    ],
+    "why_it_disappeared": [
+      "待研究"
+    ],
+    "what_survived": [
+      "待研究"
+    ],
+    "ai_changes": [
+      "待研究"
+    ],
+    "revival": {
+      "score": null,
+      "score_status": "Demo score — methodology under development",
+      "blueprint": {
+        "keep": [
+          "待生成"
+        ],
+        "kill": [
+          "待生成"
+        ],
+        "ai_mutation": [
+          "待生成"
+        ],
+        "mvp_features": [
+          "待生成"
+        ]
+      }
+    },
+    "rights_status": "unknown",
+    "sources": []
+  },
+  {
+    "id": "artifact-04",
+    "name": "开心网",
+    "category": "待分类",
+    "lifecycle": {
+      "born": null,
+      "ended": null,
+      "status": "待核验"
+    },
+    "verification_status": "demo-unverified",
+    "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
+    "product_dna": [
+      "待研究"
+    ],
+    "why_it_mattered": [
+      "待研究"
+    ],
+    "why_it_disappeared": [
+      "待研究"
+    ],
+    "what_survived": [
+      "待研究"
+    ],
+    "ai_changes": [
+      "待研究"
+    ],
+    "revival": {
+      "score": null,
+      "score_status": "Demo score — methodology under development",
+      "blueprint": {
+        "keep": [
+          "待生成"
+        ],
+        "kill": [
+          "待生成"
+        ],
+        "ai_mutation": [
+          "待生成"
+        ],
+        "mvp_features": [
+          "待生成"
+        ]
+      }
+    },
+    "rights_status": "unknown",
+    "sources": []
+  },
+  {
+    "id": "artifact-05",
+    "name": "Flash 小游戏生态",
+    "category": "待分类",
+    "lifecycle": {
+      "born": null,
+      "ended": null,
+      "status": "待核验"
+    },
+    "verification_status": "demo-unverified",
+    "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
+    "product_dna": [
+      "待研究"
+    ],
+    "why_it_mattered": [
+      "待研究"
+    ],
+    "why_it_disappeared": [
+      "待研究"
+    ],
+    "what_survived": [
+      "待研究"
+    ],
+    "ai_changes": [
+      "待研究"
+    ],
+    "revival": {
+      "score": null,
+      "score_status": "Demo score — methodology under development",
+      "blueprint": {
+        "keep": [
+          "待生成"
+        ],
+        "kill": [
+          "待生成"
+        ],
+        "ai_mutation": [
+          "待生成"
+        ],
+        "mvp_features": [
+          "待生成"
+        ]
+      }
+    },
+    "rights_status": "unknown",
+    "sources": []
+  },
+  {
+    "id": "artifact-06",
+    "name": "早期独立论坛生态",
+    "category": "待分类",
+    "lifecycle": {
+      "born": null,
+      "ended": null,
+      "status": "待核验"
+    },
+    "verification_status": "demo-unverified",
+    "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
+    "product_dna": [
+      "待研究"
+    ],
+    "why_it_mattered": [
+      "待研究"
+    ],
+    "why_it_disappeared": [
+      "待研究"
+    ],
+    "what_survived": [
+      "待研究"
+    ],
+    "ai_changes": [
+      "待研究"
+    ],
+    "revival": {
+      "score": null,
+      "score_status": "Demo score — methodology under development",
+      "blueprint": {
+        "keep": [
+          "待生成"
+        ],
+        "kill": [
+          "待生成"
+        ],
+        "ai_mutation": [
+          "待生成"
+        ],
+        "mvp_features": [
+          "待生成"
+        ]
+      }
+    },
+    "rights_status": "unknown",
+    "sources": []
+  }
+]

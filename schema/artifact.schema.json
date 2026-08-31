@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ke Zhou Qiu Jian Artifact",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "category",
+    "verification_status",
+    "product_dna",
+    "revival"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "lifecycle": {
+      "type": "object",
+      "properties": {
+        "born": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "ended": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "demo-unverified",
+        "partially-verified",
+        "verified"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "product_dna": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "why_it_mattered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "why_it_disappeared": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "what_survived": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ai_changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "revival": {
+      "type": "object",
+      "required": [
+        "score",
+        "score_status"
+      ],
+      "properties": {
+        "score": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "score_status": {
+          "type": "string"
+        },
+        "blueprint": {
+          "type": "object"
+        }
+      }
+    },
+    "rights_status": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}
