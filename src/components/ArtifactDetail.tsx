@@ -1,12 +1,18 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { X } from 'lucide-react'
+import { ArrowDownRight, X } from 'lucide-react'
 import type { Artifact } from '../types'
 
 const rows: [string, keyof Pick<Artifact, 'product_dna'|'why_it_mattered'|'why_it_disappeared'|'what_survived'|'ai_changes'>][] = [
   ['Product DNA', 'product_dna'], ['它为何重要', 'why_it_mattered'], ['为何消失', 'why_it_disappeared'], ['留下了什么', 'what_survived'], ['AI 改变了什么', 'ai_changes'],
 ]
 
-export function ArtifactDetail({ artifact, onClose }: { artifact: Artifact | null; onClose: () => void }) {
+type Props = {
+  artifact: Artifact | null
+  onClose: () => void
+  onRevive: (artifact: Artifact) => void
+}
+
+export function ArtifactDetail({ artifact, onClose, onRevive }: Props) {
   return <AnimatePresence>{artifact && <>
     <motion.button className="veil" aria-label="关闭详情" onClick={onClose} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} />
     <motion.aside className="detail" role="dialog" aria-modal="true" aria-label={`${artifact.name} 产品考古`} initial={{x:'100%'}} animate={{x:0}} exit={{x:'100%'}} transition={{duration:.65, ease:[.22,1,.36,1]}}>
@@ -18,7 +24,8 @@ export function ArtifactDetail({ artifact, onClose }: { artifact: Artifact | nul
       <p className="detail-intro">该记录目前仅用于验证产品体验。生命周期、影响与消失原因尚未研究，不构成历史结论。</p>
       {rows.map(([label,key]) => <section className="detail-row" key={key}><h3>{label}</h3><p>{artifact[key].join(' · ')}</p></section>)}
       <section className="score"><span>Revival Score</span><strong>—</strong><small>{artifact.revival.score_status}</small></section>
-      <p className="sources">Sources status · 0 条来源 / 待核验</p>
+      <button className="revive-link" onClick={() => onRevive(artifact)}><span><small>NEXT / REVIVAL LAB</small>把「{artifact.name}」带去重新计算</span><ArrowDownRight size={20}/></button>
+      <p className="sources">Sources status · {artifact.sources.length} 条来源 / 待核验</p>
     </motion.aside>
   </>}</AnimatePresence>
 }
