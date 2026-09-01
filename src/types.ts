@@ -5,6 +5,16 @@ export type Blueprint = {
   mvp_features: string[]
 }
 
+export type ArtifactSource = {
+  id: string
+  title: string
+  publisher: string
+  url: string
+  published_at: string | null
+  source_type: 'official-statement-reprint' | 'reporting' | 'retrospective' | 'reference'
+  supports: string[]
+}
+
 export type Artifact = {
   id: string
   name: string
@@ -19,5 +29,5 @@ export type Artifact = {
   ai_changes: string[]
   revival: { score: number | null; score_status: string; blueprint: Blueprint }
   rights_status: string
-  sources: unknown[]
+  sources: ArtifactSource[]
 }
