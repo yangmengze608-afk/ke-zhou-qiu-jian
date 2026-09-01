@@ -40,6 +40,13 @@ export function FluidCanvas() {
       morphTarget = Math.min(Math.max(scrollY / Math.max(h * 1.75, 1), 0), 1)
     }
 
+    const horizontalY = (x: number, p: number, i: number, time: number, near: number) => {
+      const phase = x * .009 + time * .00012 + i * .73
+      const bend = Math.sin(phase) * (9 + p * 18) + Math.sin(phase * .43) * 22
+      const disturbance = Math.sin((x / Math.max(w, 1) - pointer.x) * 12) * 30 * near
+      return p * h + bend + disturbance
+    }
+
     const paint = (time: number) => {
       pointer.x += (target.x - pointer.x) * .025
       pointer.y += (target.y - pointer.y) * .025
@@ -52,20 +59,35 @@ export function FluidCanvas() {
 
       const horizontalLines = w < 700 ? 12 : 22
       const horizontalAlpha = 1 - morph * .82
+
+      // Broad, nearly-submerged ribbons make the first frame read as water rather than a flat poster.
+      if (!reduced) {
+        const ribbons = w < 700 ? 2 : 4
+        for (let r = 0; r < ribbons; r++) {
+          const p = .42 + r * (.5 / Math.max(ribbons - 1, 1))
+          const near = Math.exp(-Math.pow((p - pointer.y) * 4.2, 2)) * pointer.power
+          ctx.beginPath()
+          for (let x = -80; x <= w + 80; x += 24) {
+            const py = horizontalY(x, p, r * 3 + 2, time * .72, near)
+            x === -80 ? ctx.moveTo(x, py) : ctx.lineTo(x, py)
+          }
+          ctx.strokeStyle = `rgba(58, 79, 69, ${(0.018 + r * .004) * horizontalAlpha})`
+          ctx.lineWidth = 54 + r * 18
+          ctx.lineCap = 'round'
+          ctx.stroke()
+        }
+      }
+
       for (let i = 0; i < horizontalLines; i++) {
         const p = i / Math.max(horizontalLines - 1, 1)
-        const y = p * h
         const near = Math.exp(-Math.pow((p - pointer.y) * 5, 2)) * pointer.power
         ctx.beginPath()
         for (let x = -20; x <= w + 20; x += 18) {
-          const phase = x * .009 + time * .00012 + i * .73
-          const bend = Math.sin(phase) * (9 + p * 18) + Math.sin(phase * .43) * 22
-          const disturbance = Math.sin((x / Math.max(w, 1) - pointer.x) * 12) * 30 * near
-          const py = y + bend + disturbance
+          const py = horizontalY(x, p, i, time, near)
           x === -20 ? ctx.moveTo(x, py) : ctx.lineTo(x, py)
         }
-        ctx.strokeStyle = `rgba(${38 + i}, ${58 + i}, ${55 + i}, ${(0.04 + p * .04) * horizontalAlpha})`
-        ctx.lineWidth = 1 + p * .45
+        ctx.strokeStyle = `rgba(${42 + i}, ${64 + i}, ${59 + i}, ${(0.052 + p * .046) * horizontalAlpha})`
+        ctx.lineWidth = .8 + p * .42
         ctx.stroke()
       }
 
@@ -82,13 +104,14 @@ export function FluidCanvas() {
           const x = w * .5 + offset + meander + disturbance
           y === -20 ? ctx.moveTo(x, y) : ctx.lineTo(x, y)
         }
-        ctx.strokeStyle = `rgba(${69 + i}, ${88 + i}, ${77 + i}, ${(.015 + i * .002) * morph})`
-        ctx.lineWidth = 1 + morph * .45
+        ctx.strokeStyle = `rgba(${71 + i}, ${92 + i}, ${80 + i}, ${(.02 + i * .0025) * morph})`
+        ctx.lineWidth = .9 + morph * .45
         ctx.stroke()
       }
 
-      const glow = ctx.createRadialGradient(pointer.x*w, pointer.y*h, 0, pointer.x*w, pointer.y*h, 260)
-      glow.addColorStop(0, `rgba(128,145,128,${.05 * pointer.power})`)
+      const glow = ctx.createRadialGradient(pointer.x * w, pointer.y * h, 0, pointer.x * w, pointer.y * h, 310)
+      glow.addColorStop(0, `rgba(135,155,137,${.075 * pointer.power})`)
+      glow.addColorStop(.38, `rgba(81,108,92,${.035 * pointer.power})`)
       glow.addColorStop(1, 'rgba(0,0,0,0)')
       ctx.fillStyle = glow
       ctx.fillRect(0, 0, w, h)

@@ -4,6 +4,7 @@ import { ArrowDown, ArrowUpRight, GitBranch } from 'lucide-react'
 import { artifacts } from './data/artifacts'
 import type { Artifact } from './types'
 import { FluidCanvas } from './components/FluidCanvas'
+import { LivingRiver } from './components/LivingRiver'
 import { ArtifactDetail } from './components/ArtifactDetail'
 import { BlueprintModal } from './components/BlueprintModal'
 
@@ -46,6 +47,7 @@ function App() {
   return <main>
     <FluidCanvas />
     <nav className="nav"><a href="#top" className="mark">刻舟求剑</a><span>样例档案 · 数据待最终核验</span><a href="#archive">ARCHIVE 006</a></nav>
+
     <section className="hero" id="top">
       <motion.div className="hero-copy" style={{opacity:heroOpacity, scale:heroScale}}>
         <p className="eyebrow">PRODUCT ARCHAEOLOGY FOR THE CHINESE INTERNET</p>
@@ -56,18 +58,9 @@ function App() {
       <div className="depth">水深 / 000</div>
     </section>
 
-    <section className="archive" id="archive">
-      <header className="section-head"><div><p className="eyebrow">01 / SUBMERGED ARCHIVE</p><h2>历史不是直线。<br/>它是一条改道的河。</h2></div><p>滚动是时间。悬停，让遗物浮出水面；点击，进入产品考古。</p></header>
-      <div className="river" aria-label="样例档案时间河流">
-        <div className="river-line" aria-hidden="true" />
-        {artifacts.map((artifact, i) => <motion.button
-          className={`artifact artifact-${i+1}`} key={artifact.id} onClick={() => setSelected(artifact)}
-          initial={{opacity:0, y:50}} whileInView={{opacity:1, y:0}} viewport={{once:true, margin:'-15%'}} transition={{duration:.8, delay:i*.05}}
-          aria-label={`打开 ${artifact.name} 产品考古详情`}>
-          <span className="artifact-index">0{i+1}</span><span className="artifact-object"><i/><i/><i/></span>
-          <span className="artifact-copy"><small>年代待核验 · UI DEMO</small><strong>{artifact.name}</strong><em>点击打捞</em></span>
-        </motion.button>)}
-      </div>
+    <section className="archive archive-v02" id="archive">
+      <header className="section-head"><div><p className="eyebrow">01 / SUBMERGED ARCHIVE</p><h2>历史不是直线。<br/>它是一条改道的河。</h2></div><p>滚动不是翻页，而是时间本身。河道会收束、改道，再在 Revival 前重新展开。</p></header>
+      <LivingRiver artifacts={artifacts} onSelect={setSelected} />
     </section>
 
     <section className="revival" id="revival">
@@ -82,7 +75,9 @@ function App() {
     </section>
 
     <section className="manifesto" id="methodology"><p className="eyebrow">03 / CLEAN ROOM MANIFESTO</p><div><h2>记住消失，<br/>不等于占有遗物。</h2><div className="manifesto-copy"><p>“刻舟求剑”不是盗版资源仓库。</p><p>不托管 ROM、破解资源、泄露源码，不复制整站内容；不把“停止维护”理解为版权消失。我们以 metadata、来源索引、历史研究和产品思想分析为主，Revival 偏向 clean-room reimplementation。</p><p className="rights">每条正式记录都应拥有可审计来源与 rights_status。</p></div></div></section>
-    <footer id="about"><div><strong>刻舟求剑</strong><span>KE ZHOU QIU JIAN</span></div><div className="footer-links"><a href={repoUrl} target="_blank" rel="noreferrer"><GitBranch size={15}/> GitHub</a><a href={`${repoUrl}/issues/new?title=${encodeURIComponent('提交一个被遗忘的中文互联网产品 / Forgotten product')}`} target="_blank" rel="noreferrer">Submit a forgotten product</a><a href="#methodology">Methodology</a><button onClick={()=>nudge('MVP 0.1 · Product Archaeology for the Chinese Internet')}>About</button></div><small>Product Archaeology for the Chinese Internet · MVP 0.1</small></footer>
+
+    <footer id="about"><div><strong>刻舟求剑</strong><span>KE ZHOU QIU JIAN</span></div><div className="footer-links"><a href={repoUrl} target="_blank" rel="noreferrer"><GitBranch size={15}/> GitHub</a><a href={`${repoUrl}/issues/new?title=${encodeURIComponent('提交一个被遗忘的中文互联网产品 / Forgotten product')}`} target="_blank" rel="noreferrer">Submit a forgotten product</a><a href="#methodology">Methodology</a><button onClick={()=>nudge('MVP 0.2 · Living River interaction')}>About</button></div><small>Product Archaeology for the Chinese Internet · MVP 0.2</small></footer>
+
     <ArtifactDetail artifact={selected} onClose={()=>setSelected(null)} onRevive={sendToRevival} />
     <BlueprintModal open={blueprint} artifact={revivalTarget} onClose={()=>setBlueprint(false)} />
     <div className={`toast ${notice?'show':''}`} role="status">{notice}</div>
