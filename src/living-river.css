@@ -1,0 +1,39 @@
+.archive-v02{padding-bottom:10vh}
+.living-river{position:relative;height:2400px;max-width:1320px;margin:13vh auto 0;overflow:hidden;isolation:isolate}
+.river-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.river-bank-glow,.river-bank,.river-water,.river-current{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.river-bank-glow{mix-blend-mode:screen}
+.river-bank{opacity:.82}
+.river-water{opacity:.96}
+.river-current{stroke:rgba(221,219,207,.2);stroke-width:1.2;stroke-dasharray:2 16;opacity:.75}
+.river-pointer-field{position:absolute;z-index:0;width:380px;height:380px;margin:-190px 0 0 -190px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(129,151,137,.14) 0,rgba(86,110,96,.06) 33%,transparent 72%);filter:blur(12px);mix-blend-mode:screen}
+.river-depth-scale{position:absolute;z-index:3;left:50%;top:3%;bottom:5%;width:1px;pointer-events:none;color:#5f6963;font-size:8px;letter-spacing:.16em;text-transform:uppercase}
+.river-depth-scale:before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(125,145,133,.1),rgba(125,145,133,.22) 55%,rgba(180,151,90,.35));opacity:.28}
+.river-depth-scale span{position:absolute;left:18px;white-space:nowrap;transform:translateY(-50%)}
+.river-depth-scale span:nth-child(1){top:2%}.river-depth-scale span:nth-child(2){top:35%}.river-depth-scale span:nth-child(3){top:67%}.river-depth-scale span:nth-child(4){top:96%;color:#9d885d}
+.river-artifact{position:absolute;z-index:5;width:360px;min-height:190px;border:0;background:none;color:inherit;text-align:left;cursor:pointer;padding:0;overflow:visible}
+.river-artifact:before{content:"";position:absolute;left:8px;top:50%;width:160px;height:160px;border-radius:50%;transform:translateY(-50%) scale(.62);border:1px solid rgba(111,134,120,.14);box-shadow:0 0 0 24px rgba(90,113,99,.025),0 0 70px rgba(81,107,91,.05);opacity:.4;transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .8s,border-color .8s}
+.river-artifact-right:before{left:auto;right:8px}
+.river-artifact-pulse{position:absolute;left:64px;top:50%;width:44px;height:44px;border-radius:50%;transform:translate(-50%,-50%);border:1px solid rgba(145,157,147,.22);opacity:.35;transition:.8s}
+.river-artifact-right .river-artifact-pulse{left:auto;right:42px;transform:translate(50%,-50%)}
+.river-artifact-marker{position:absolute;left:46px;top:50%;width:38px;height:38px;transform:translateY(-50%) rotate(45deg);border:1px solid rgba(158,168,160,.38);background:rgba(31,42,36,.26);backdrop-filter:blur(2px);filter:blur(4px);opacity:.55;transition:.8s cubic-bezier(.22,1,.36,1)}
+.river-artifact-right .river-artifact-marker{left:auto;right:46px}
+.river-artifact-marker i{position:absolute;background:#8b978f;opacity:.6}.river-artifact-marker i:first-child{height:1px;left:5px;right:5px;top:50%}.river-artifact-marker i:last-child{width:1px;top:5px;bottom:5px;left:50%}
+.river-artifact-copy{position:absolute;left:120px;top:50%;width:230px;transform:translateY(-46%);transition:.75s cubic-bezier(.22,1,.36,1)}
+.river-artifact-right .river-artifact-copy{left:auto;right:120px;text-align:right}
+.river-artifact-copy small,.river-artifact-copy strong,.river-artifact-copy em{display:block}
+.river-artifact-copy small{font-size:8px;letter-spacing:.16em;color:#677169}.river-artifact-copy strong{font:600 27px "Noto Serif SC",serif;margin:14px 0 12px;color:#c6c6bc}.river-artifact-copy em{font-style:normal;font-size:9px;letter-spacing:.14em;color:#9e895c;opacity:0;transform:translateY(8px);transition:.55s}
+.river-artifact:hover:before,.river-artifact:focus-visible:before{transform:translateY(-50%) scale(1);opacity:.9;border-color:rgba(142,157,146,.36)}
+.river-artifact:hover .river-artifact-pulse,.river-artifact:focus-visible .river-artifact-pulse{width:118px;height:118px;opacity:.7;border-color:rgba(180,151,90,.3)}
+.river-artifact:hover .river-artifact-marker,.river-artifact:focus-visible .river-artifact-marker{filter:blur(0);opacity:1;transform:translateY(-50%) rotate(2deg) scale(1.08);border-color:rgba(180,151,90,.6);box-shadow:0 0 35px rgba(180,151,90,.14)}
+.river-artifact:hover .river-artifact-copy,.river-artifact:focus-visible .river-artifact-copy{transform:translateY(-54%)}
+.river-artifact:hover .river-artifact-copy strong,.river-artifact:focus-visible .river-artifact-copy strong{color:#ebe4d4}
+.river-artifact:hover .river-artifact-copy em,.river-artifact:focus-visible .river-artifact-copy em{opacity:1;transform:none}
+.river-mouth{position:absolute;z-index:2;left:50%;bottom:1%;width:46%;height:210px;transform:translateX(-50%);pointer-events:none;filter:blur(.2px)}
+.river-mouth:before{content:"";position:absolute;left:50%;bottom:0;width:72%;height:170px;transform:translateX(-50%);background:radial-gradient(ellipse at center bottom,rgba(180,151,90,.2),rgba(180,151,90,.05) 44%,transparent 75%);filter:blur(18px)}
+.river-mouth span{position:absolute;left:50%;bottom:10px;width:1px;height:170px;transform-origin:bottom;background:linear-gradient(to top,rgba(180,151,90,.48),transparent)}
+.river-mouth span:nth-child(1){transform:rotate(-24deg)}.river-mouth span:nth-child(2){transform:rotate(0)}.river-mouth span:nth-child(3){transform:rotate(24deg)}
+.river-exit-copy{position:absolute;z-index:6;right:4%;bottom:2.5%;text-align:right;pointer-events:none}.river-exit-copy span{display:block;font-size:8px;letter-spacing:.22em;color:#8b7954;margin-bottom:13px}.river-exit-copy strong{font:600 clamp(24px,3vw,42px)/1.45 "Noto Serif SC",serif;color:#d6c59b}
+@media(max-width:900px){.living-river{height:2200px}.river-artifact{width:320px}.river-artifact-copy{width:205px}.river-artifact-copy strong{font-size:23px}}
+@media(max-width:700px){.archive-v02{min-height:0;padding-bottom:8vh}.living-river{height:1900px;margin-top:10vh;overflow:visible}.river-svg{left:0;width:75%;overflow:visible}.river-depth-scale{left:22%}.river-depth-scale span{left:12px;font-size:7px}.river-artifact{width:78%;left:22%!important;min-height:150px}.river-artifact-right:before,.river-artifact:before{left:0;right:auto;width:112px;height:112px}.river-artifact-right .river-artifact-pulse,.river-artifact-pulse{left:42px;right:auto}.river-artifact-right .river-artifact-marker,.river-artifact-marker{left:24px;right:auto}.river-artifact-right .river-artifact-copy,.river-artifact-copy{left:90px;right:auto;width:calc(100% - 92px);text-align:left}.river-artifact-copy strong{font-size:20px}.river-artifact-copy em{font-size:8px}.river-mouth{left:28%;width:58%}.river-exit-copy{right:0;bottom:1.5%;max-width:75%}.river-exit-copy strong{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.river-pointer-field{display:none}.river-artifact:before,.river-artifact-pulse,.river-artifact-marker,.river-artifact-copy{transition:none!important}.river-artifact-marker{filter:blur(0);opacity:.8}.river-artifact-copy em{opacity:.75;transform:none}}
