@@ -2,9 +2,9 @@ import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTran
 import { useRef } from 'react'
 import type { Artifact } from '../types'
 
-const pathA = 'M 500 0 C 280 180 735 360 485 610 C 255 840 760 1040 520 1280 C 300 1500 720 1700 485 1925 C 350 2050 565 2145 500 2200'
-const pathB = 'M 500 0 C 390 210 625 365 505 610 C 360 850 650 1030 500 1280 C 355 1510 650 1700 500 1925 C 410 2050 555 2145 500 2200'
-const pathC = 'M 500 0 C 430 205 570 390 500 610 C 425 850 585 1045 505 1280 C 420 1510 605 1710 500 1925 C 440 2055 610 2140 520 2200'
+const pathA = 'M 500 0 C 270 175 745 360 480 610 C 245 835 770 1035 515 1280 C 285 1490 730 1705 475 1925 C 335 2050 585 2145 500 2200'
+const pathB = 'M 500 0 C 385 205 630 365 500 610 C 350 845 655 1035 495 1280 C 350 1510 655 1700 495 1925 C 400 2050 565 2145 500 2200'
+const pathC = 'M 500 0 C 430 205 575 390 500 610 C 420 850 590 1045 500 1280 C 410 1510 610 1710 495 1925 C 430 2050 625 2140 525 2200'
 
 const positions = [
   { top: 7, left: 12, side: 'left' },
@@ -27,9 +27,10 @@ export function LivingRiver({ artifacts, onSelect }: Props) {
 
   const riverPath = useTransform(scrollYProgress, [0, .52, 1], reduced ? [pathB, pathB, pathB] : [pathA, pathB, pathC])
   const reveal = useTransform(scrollYProgress, [.02, .86], [.06, 1])
-  const bankWidth = useTransform(scrollYProgress, [0, .25, .72, 1], reduced ? [118, 118, 118, 118] : [205, 132, 84, 150])
-  const innerWidth = useTransform(scrollYProgress, [0, .35, .78, 1], reduced ? [72, 72, 72, 72] : [116, 76, 48, 94])
-  const glowOpacity = useTransform(scrollYProgress, [0, .55, 1], [.16, .34, .62])
+  const bankWidth = useTransform(scrollYProgress, [0, .25, .72, 1], reduced ? [104, 104, 104, 104] : [166, 112, 70, 126])
+  const innerWidth = useTransform(scrollYProgress, [0, .35, .78, 1], reduced ? [60, 60, 60, 60] : [88, 60, 35, 74])
+  const glowOpacity = useTransform(scrollYProgress, [0, .55, 1], [.13, .3, .58])
+  const inletOpacity = useTransform(scrollYProgress, [0, .18, .32], reduced ? [.42, .42, .42] : [.72, .38, .08])
 
   const pointerX = useMotionValue(-200)
   const pointerY = useMotionValue(-200)
@@ -54,25 +55,40 @@ export function LivingRiver({ artifacts, onSelect }: Props) {
     <svg className="river-svg" viewBox="0 0 1000 2200" preserveAspectRatio="none" aria-hidden="true">
       <defs>
         <linearGradient id="riverInk" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#31423a" stopOpacity=".16" />
-          <stop offset="48%" stopColor="#42574c" stopOpacity=".24" />
-          <stop offset="82%" stopColor="#665b3b" stopOpacity=".22" />
-          <stop offset="100%" stopColor="#b4975a" stopOpacity=".34" />
+          <stop offset="0%" stopColor="#31423a" stopOpacity=".13" />
+          <stop offset="48%" stopColor="#42574c" stopOpacity=".2" />
+          <stop offset="82%" stopColor="#665b3b" stopOpacity=".19" />
+          <stop offset="100%" stopColor="#b4975a" stopOpacity=".31" />
         </linearGradient>
         <linearGradient id="riverCore" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#52665c" stopOpacity=".18" />
-          <stop offset="72%" stopColor="#728075" stopOpacity=".2" />
-          <stop offset="100%" stopColor="#c2a465" stopOpacity=".38" />
+          <stop offset="0%" stopColor="#52665c" stopOpacity=".14" />
+          <stop offset="72%" stopColor="#728075" stopOpacity=".17" />
+          <stop offset="100%" stopColor="#c2a465" stopOpacity=".32" />
         </linearGradient>
         <filter id="riverBlur" x="-60%" y="-10%" width="220%" height="120%">
-          <feGaussianBlur stdDeviation="24" />
+          <feGaussianBlur stdDeviation="28" />
+        </filter>
+        <filter id="riverDistort" x="-45%" y="-8%" width="190%" height="116%">
+          <feTurbulence type="fractalNoise" baseFrequency=".011 .004" numOctaves="2" seed="19" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="13" xChannelSelector="R" yChannelSelector="G" />
         </filter>
       </defs>
 
+      <motion.g className="river-inlet" style={{ opacity: inletOpacity }}>
+        <path d="M 40 0 C 150 65 320 115 500 190" />
+        <path d="M 210 0 C 285 70 390 115 500 190" />
+        <path d="M 790 0 C 715 75 615 120 500 190" />
+        <path d="M 960 0 C 820 70 665 115 500 190" />
+      </motion.g>
+
       <motion.path d={riverPath} pathLength={1} style={{ pathLength: reveal, strokeWidth: bankWidth, opacity: glowOpacity }} className="river-bank-glow" stroke="url(#riverInk)" filter="url(#riverBlur)" />
-      <motion.path d={riverPath} pathLength={1} style={{ pathLength: reveal, strokeWidth: bankWidth }} className="river-bank" stroke="url(#riverInk)" />
-      <motion.path d={riverPath} pathLength={1} style={{ pathLength: reveal, strokeWidth: innerWidth }} className="river-water" stroke="url(#riverCore)" />
-      <motion.path d={riverPath} pathLength={1} style={{ pathLength: reveal }} className="river-current" />
+      <g filter={reduced ? undefined : 'url(#riverDistort)'}>
+        <motion.path d={riverPath} pathLength={1} style={{ pathLength: reveal, strokeWidth: bankWidth }} className="river-bank" stroke="url(#riverInk)" />
+        <motion.path d={riverPath} pathLength={1} style={{ pathLength: reveal, strokeWidth: innerWidth }} className="river-water" stroke="url(#riverCore)" />
+      </g>
+      <motion.path d={riverPath} pathLength={1} style={{ pathLength: reveal }} className="river-current river-current-main" />
+      <motion.path d={riverPath} pathLength={1} style={{ pathLength: reveal }} className="river-current river-current-left" transform="translate(-15 0)" />
+      <motion.path d={riverPath} pathLength={1} style={{ pathLength: reveal }} className="river-current river-current-right" transform="translate(17 0)" />
     </svg>
 
     <div className="river-depth-scale" aria-hidden="true">
@@ -106,9 +122,7 @@ export function LivingRiver({ artifacts, onSelect }: Props) {
     })}
 
     <motion.div className="river-mouth" style={{ opacity: glowOpacity }} aria-hidden="true">
-      <span />
-      <span />
-      <span />
+      <span /><span /><span /><span /><span />
     </motion.div>
 
     <div className="river-exit-copy">
