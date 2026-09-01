@@ -1,14 +1,18 @@
 .archive-v02{padding-bottom:10vh}
 .living-river{position:relative;height:2400px;max-width:1320px;margin:13vh auto 0;overflow:hidden;isolation:isolate}
 .river-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.river-bank-glow,.river-bank,.river-water,.river-current{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.river-bank-glow,.river-bank,.river-water,.river-current,.river-inlet path{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .river-bank-glow{mix-blend-mode:screen}
-.river-bank{opacity:.82}
-.river-water{opacity:.96}
-.river-current{stroke:rgba(221,219,207,.2);stroke-width:1.2;stroke-dasharray:2 16;opacity:.75}
+.river-bank{opacity:.74}
+.river-water{opacity:.82}
+.river-current{stroke:rgba(221,219,207,.17);stroke-width:1;stroke-dasharray:2 18;opacity:.58}
+.river-current-left{stroke:rgba(126,145,134,.12);stroke-dasharray:1 24;opacity:.44}
+.river-current-right{stroke:rgba(180,151,90,.1);stroke-dasharray:1 29;opacity:.42}
+.river-inlet path{stroke:rgba(104,128,114,.2);stroke-width:1}
+.river-inlet path:nth-child(2),.river-inlet path:nth-child(3){stroke:rgba(151,160,151,.16)}
 .river-pointer-field{position:absolute;z-index:0;width:380px;height:380px;margin:-190px 0 0 -190px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(129,151,137,.14) 0,rgba(86,110,96,.06) 33%,transparent 72%);filter:blur(12px);mix-blend-mode:screen}
 .river-depth-scale{position:absolute;z-index:3;left:50%;top:3%;bottom:5%;width:1px;pointer-events:none;color:#5f6963;font-size:8px;letter-spacing:.16em;text-transform:uppercase}
-.river-depth-scale:before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(125,145,133,.1),rgba(125,145,133,.22) 55%,rgba(180,151,90,.35));opacity:.28}
+.river-depth-scale:before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(125,145,133,.08),rgba(125,145,133,.18) 55%,rgba(180,151,90,.32));opacity:.24}
 .river-depth-scale span{position:absolute;left:18px;white-space:nowrap;transform:translateY(-50%)}
 .river-depth-scale span:nth-child(1){top:2%}.river-depth-scale span:nth-child(2){top:35%}.river-depth-scale span:nth-child(3){top:67%}.river-depth-scale span:nth-child(4){top:96%;color:#9d885d}
 .river-artifact{position:absolute;z-index:5;width:360px;min-height:190px;border:0;background:none;color:inherit;text-align:left;cursor:pointer;padding:0;overflow:visible}
@@ -29,11 +33,11 @@
 .river-artifact:hover .river-artifact-copy,.river-artifact:focus-visible .river-artifact-copy{transform:translateY(-54%)}
 .river-artifact:hover .river-artifact-copy strong,.river-artifact:focus-visible .river-artifact-copy strong{color:#ebe4d4}
 .river-artifact:hover .river-artifact-copy em,.river-artifact:focus-visible .river-artifact-copy em{opacity:1;transform:none}
-.river-mouth{position:absolute;z-index:2;left:50%;bottom:1%;width:46%;height:210px;transform:translateX(-50%);pointer-events:none;filter:blur(.2px)}
-.river-mouth:before{content:"";position:absolute;left:50%;bottom:0;width:72%;height:170px;transform:translateX(-50%);background:radial-gradient(ellipse at center bottom,rgba(180,151,90,.2),rgba(180,151,90,.05) 44%,transparent 75%);filter:blur(18px)}
-.river-mouth span{position:absolute;left:50%;bottom:10px;width:1px;height:170px;transform-origin:bottom;background:linear-gradient(to top,rgba(180,151,90,.48),transparent)}
-.river-mouth span:nth-child(1){transform:rotate(-24deg)}.river-mouth span:nth-child(2){transform:rotate(0)}.river-mouth span:nth-child(3){transform:rotate(24deg)}
+.river-mouth{position:absolute;z-index:2;left:50%;bottom:.2%;width:54%;height:245px;transform:translateX(-50%);pointer-events:none;filter:blur(.2px)}
+.river-mouth:before{content:"";position:absolute;left:50%;bottom:-5px;width:88%;height:205px;transform:translateX(-50%);background:radial-gradient(ellipse at center bottom,rgba(180,151,90,.24),rgba(180,151,90,.06) 42%,transparent 74%);filter:blur(22px)}
+.river-mouth span{position:absolute;left:50%;bottom:8px;width:1px;height:195px;transform-origin:bottom;background:linear-gradient(to top,rgba(180,151,90,.44),rgba(180,151,90,.08) 56%,transparent)}
+.river-mouth span:nth-child(1){transform:rotate(-32deg)}.river-mouth span:nth-child(2){transform:rotate(-16deg)}.river-mouth span:nth-child(3){transform:rotate(0)}.river-mouth span:nth-child(4){transform:rotate(16deg)}.river-mouth span:nth-child(5){transform:rotate(32deg)}
 .river-exit-copy{position:absolute;z-index:6;right:4%;bottom:2.5%;text-align:right;pointer-events:none}.river-exit-copy span{display:block;font-size:8px;letter-spacing:.22em;color:#8b7954;margin-bottom:13px}.river-exit-copy strong{font:600 clamp(24px,3vw,42px)/1.45 "Noto Serif SC",serif;color:#d6c59b}
 @media(max-width:900px){.living-river{height:2200px}.river-artifact{width:320px}.river-artifact-copy{width:205px}.river-artifact-copy strong{font-size:23px}}
-@media(max-width:700px){.archive-v02{min-height:0;padding-bottom:8vh}.living-river{height:1900px;margin-top:10vh;overflow:visible}.river-svg{left:0;width:75%;overflow:visible}.river-depth-scale{left:22%}.river-depth-scale span{left:12px;font-size:7px}.river-artifact{width:78%;left:22%!important;min-height:150px}.river-artifact-right:before,.river-artifact:before{left:0;right:auto;width:112px;height:112px}.river-artifact-right .river-artifact-pulse,.river-artifact-pulse{left:42px;right:auto}.river-artifact-right .river-artifact-marker,.river-artifact-marker{left:24px;right:auto}.river-artifact-right .river-artifact-copy,.river-artifact-copy{left:90px;right:auto;width:calc(100% - 92px);text-align:left}.river-artifact-copy strong{font-size:20px}.river-artifact-copy em{font-size:8px}.river-mouth{left:28%;width:58%}.river-exit-copy{right:0;bottom:1.5%;max-width:75%}.river-exit-copy strong{font-size:25px}}
+@media(max-width:700px){.archive-v02{min-height:0;padding-bottom:8vh}.living-river{height:1900px;margin-top:10vh;overflow:visible}.river-svg{left:0;width:60%;overflow:visible}.river-bank-glow,.river-bank,.river-water,.river-current,.river-inlet path{vector-effect:none}.river-depth-scale{left:29%;color:#748079}.river-depth-scale span{left:10px;font-size:7px}.river-artifact{width:81%;left:19%!important;min-height:150px}.river-artifact-right:before,.river-artifact:before{left:0;right:auto;width:104px;height:104px}.river-artifact-right .river-artifact-pulse,.river-artifact-pulse{left:36px;right:auto}.river-artifact-right .river-artifact-marker,.river-artifact-marker{left:18px;right:auto}.river-artifact-right .river-artifact-copy,.river-artifact-copy{left:82px;right:auto;width:calc(100% - 84px);text-align:left}.river-artifact-copy small{color:#7b867f}.river-artifact-copy strong{font-size:21px;color:#d4d3ca;text-shadow:0 2px 18px #070908}.river-artifact-copy em{font-size:8px}.river-mouth{left:30%;width:68%}.river-exit-copy{right:0;bottom:1.2%;max-width:72%}.river-exit-copy strong{font-size:25px}}
 @media(prefers-reduced-motion:reduce){.river-pointer-field{display:none}.river-artifact:before,.river-artifact-pulse,.river-artifact-marker,.river-artifact-copy{transition:none!important}.river-artifact-marker{filter:blur(0);opacity:.8}.river-artifact-copy em{opacity:.75;transform:none}}
