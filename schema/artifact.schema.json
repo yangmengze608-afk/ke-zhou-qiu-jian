@@ -2,116 +2,72 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Ke Zhou Qiu Jian Artifact",
   "type": "object",
-  "required": [
-    "id",
-    "name",
-    "category",
-    "verification_status",
-    "product_dna",
-    "revival"
-  ],
+  "required": ["id", "name", "category", "lifecycle", "verification_status", "summary", "product_dna", "why_it_mattered", "why_it_disappeared", "what_survived", "ai_changes", "revival", "rights_status", "sources"],
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "category": {
-      "type": "string"
-    },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "category": { "type": "string" },
     "lifecycle": {
       "type": "object",
+      "required": ["born", "ended", "status"],
       "properties": {
-        "born": {
-          "type": [
-            "integer",
-            "null"
-          ]
-        },
-        "ended": {
-          "type": [
-            "integer",
-            "null"
-          ]
-        },
-        "status": {
-          "type": "string"
-        }
-      }
+        "born": { "type": ["integer", "null"] },
+        "ended": { "type": ["integer", "null"] },
+        "status": { "type": "string" }
+      },
+      "additionalProperties": false
     },
     "verification_status": {
       "type": "string",
-      "enum": [
-        "demo-unverified",
-        "partially-verified",
-        "verified"
-      ]
+      "enum": ["demo-unverified", "partially-verified", "verified"]
     },
-    "summary": {
-      "type": "string"
-    },
-    "product_dna": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "why_it_mattered": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "why_it_disappeared": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "what_survived": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "ai_changes": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
+    "summary": { "type": "string" },
+    "product_dna": { "type": "array", "items": { "type": "string" } },
+    "why_it_mattered": { "type": "array", "items": { "type": "string" } },
+    "why_it_disappeared": { "type": "array", "items": { "type": "string" } },
+    "what_survived": { "type": "array", "items": { "type": "string" } },
+    "ai_changes": { "type": "array", "items": { "type": "string" } },
     "revival": {
       "type": "object",
-      "required": [
-        "score",
-        "score_status"
-      ],
+      "required": ["score", "score_status", "blueprint"],
       "properties": {
-        "score": {
-          "type": [
-            "number",
-            "null"
-          ],
-          "minimum": 0,
-          "maximum": 100
-        },
-        "score_status": {
-          "type": "string"
-        },
+        "score": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+        "score_status": { "type": "string" },
         "blueprint": {
-          "type": "object"
+          "type": "object",
+          "required": ["keep", "kill", "ai_mutation", "mvp_features"],
+          "properties": {
+            "keep": { "type": "array", "items": { "type": "string" } },
+            "kill": { "type": "array", "items": { "type": "string" } },
+            "ai_mutation": { "type": "array", "items": { "type": "string" } },
+            "mvp_features": { "type": "array", "items": { "type": "string" } }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
-    "rights_status": {
-      "type": "string"
-    },
+    "rights_status": { "type": "string" },
     "sources": {
       "type": "array",
       "items": {
-        "type": "object"
+        "type": "object",
+        "required": ["id", "title", "publisher", "url", "published_at", "source_type", "supports"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "publisher": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "published_at": { "type": ["string", "null"], "format": "date" },
+          "source_type": {
+            "type": "string",
+            "enum": ["official-statement-reprint", "reporting", "retrospective", "reference"]
+          },
+          "supports": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+        },
+        "additionalProperties": false
       }
     }
-  }
+  },
+  "additionalProperties": false
 }

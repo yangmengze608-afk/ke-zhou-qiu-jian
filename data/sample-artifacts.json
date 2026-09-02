@@ -3,45 +3,18 @@
     "id": "artifact-01",
     "name": "天涯社区",
     "category": "待分类",
-    "lifecycle": {
-      "born": null,
-      "ended": null,
-      "status": "待核验"
-    },
+    "lifecycle": { "born": null, "ended": null, "status": "待核验" },
     "verification_status": "demo-unverified",
     "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
-    "product_dna": [
-      "待研究"
-    ],
-    "why_it_mattered": [
-      "待研究"
-    ],
-    "why_it_disappeared": [
-      "待研究"
-    ],
-    "what_survived": [
-      "待研究"
-    ],
-    "ai_changes": [
-      "待研究"
-    ],
+    "product_dna": ["待研究"],
+    "why_it_mattered": ["待研究"],
+    "why_it_disappeared": ["待研究"],
+    "what_survived": ["待研究"],
+    "ai_changes": ["待研究"],
     "revival": {
       "score": null,
       "score_status": "Demo score — methodology under development",
-      "blueprint": {
-        "keep": [
-          "待生成"
-        ],
-        "kill": [
-          "待生成"
-        ],
-        "ai_mutation": [
-          "待生成"
-        ],
-        "mvp_features": [
-          "待生成"
-        ]
-      }
+      "blueprint": { "keep": ["待生成"], "kill": ["待生成"], "ai_mutation": ["待生成"], "mvp_features": ["待生成"] }
     },
     "rights_status": "unknown",
     "sources": []
@@ -49,94 +22,130 @@
   {
     "id": "artifact-02",
     "name": "虾米音乐",
-    "category": "待分类",
-    "lifecycle": {
-      "born": null,
-      "ended": null,
-      "status": "待核验"
-    },
-    "verification_status": "demo-unverified",
-    "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
+    "category": "音乐流媒体 / 音乐社区",
+    "lifecycle": { "born": 2008, "ended": 2021, "status": "播放器业务已停止服务" },
+    "verification_status": "partially-verified",
+    "summary": "虾米网于 2008 年正式上线，虾米音乐播放器业务于 2021 年 2 月 5 日停止服务。团队在告别信中将“错失关键机会”和音乐版权内容获取不足列为主要遗憾。以下 Product DNA、遗产与 AI Revival 为基于公开资料的产品分析，不等同于官方结论。",
     "product_dna": [
-      "待研究"
+      "把曲风、专辑、音乐人与多语言元数据做成可探索的音乐知识系统",
+      "偏向长尾发现的个性化推荐，而不是只追逐头部热门内容",
+      "用歌单、评论与乐迷共同策展形成高密度音乐社区",
+      "把独立音乐人的发布、分发、数据与结算接入同一音乐生态"
     ],
     "why_it_mattered": [
-      "待研究"
+      "公开回顾资料显示，虾米以细致的曲风分类、专辑与音乐人资料获得“专业、小众”的产品认知",
+      "虾米官方告别信称，平台沉淀了 5 亿多张歌单和丰富的音乐数据库，说明用户策展本身已经成为重要资产",
+      "2013 年推出的音乐人平台允许独立音乐人和独立唱片公司发布正版音乐，并提供运营、数据与结算工具"
     ],
     "why_it_disappeared": [
-      "待研究"
+      "官方告别信确认：业务调整之外，团队认为自己错失了一些关键机会，并在音乐版权内容获取上没能满足用户多元化需求",
+      "多篇行业回顾把重要曲库流失、版权竞争和用户规模下滑视为进一步恶化竞争位置的因素",
+      "因此更稳妥的结论不是“单一原因导致死亡”，而是产品优势无法抵消曲库、版权与平台竞争的结构性约束"
     ],
     "what_survived": [
-      "待研究"
+      "深度曲风 taxonomy、专辑知识与音乐人上下文仍然是音乐发现产品的重要设计模式",
+      "社区歌单与用户策展证明：音乐产品的价值不只在播放，也在帮助人建立和表达自己的音乐身份",
+      "面向独立音乐人的平台工具与长尾发现机制后来继续出现在不同音乐服务中"
     ],
     "ai_changes": [
-      "待研究"
+      "自然语言与语义模型能把“我想找什么感觉的音乐”直接映射到曲风、编曲、场景和相似关系，显著降低发现成本",
+      "AI 可以生成可解释推荐、跨语言艺人/专辑知识整理和个人 Taste Graph，让深度音乐数据库更容易被普通用户使用",
+      "AI 能辅助社区策展与独立音乐人资料整理，但不应替代来源核验和人的音乐判断",
+      "关键反证：AI 并不能消除音乐版权、曲库授权和内容成本；如果仍以自有全曲库正面对撞头部平台，旧问题依然存在"
     ],
     "revival": {
       "score": null,
-      "score_status": "Demo score — methodology under development",
+      "score_status": "暂不评分：AI 显著降低发现与音乐知识组织成本，但不解决音乐版权与曲库授权这一核心约束。",
       "blueprint": {
         "keep": [
-          "待生成"
+          "深度曲风 / 专辑 / 音乐人元数据",
+          "长尾音乐发现而非纯热门分发",
+          "人类歌单与社区策展",
+          "独立音乐人与乐迷之间的连接"
         ],
         "kill": [
-          "待生成"
+          "用自有全曲库正面对撞头部音乐平台",
+          "把旧播放器界面和怀旧视觉原样复刻",
+          "把独家版权本身当作产品护城河",
+          "把算法推荐做成不可解释的黑箱"
         ],
         "ai_mutation": [
-          "待生成"
+          "自然语言音乐探索：从情绪、场景、编曲和相似关系寻找音乐",
+          "可解释推荐：告诉用户为什么这首歌与其 Taste Graph 相关",
+          "自动整理跨语言音乐知识，同时保留可追溯来源",
+          "把多年歌单与偏好转成用户可携带、可导出的 Taste Graph"
         ],
         "mvp_features": [
-          "待生成"
+          "不托管音频，优先连接用户已授权的流媒体与开放音乐元数据",
+          "AI 音乐图书馆与语义搜索",
+          "个人 Taste Graph 与可导出音乐档案",
+          "人类歌单 + AI 辅助注释的社区策展页",
+          "独立音乐人资料页与长尾发现入口"
         ]
       }
     },
-    "rights_status": "unknown",
-    "sources": []
+    "rights_status": "品牌与音乐内容均为受保护对象；本项目仅做 metadata、历史研究与产品分析，不托管音频或复制原站视觉资产。",
+    "sources": [
+      {
+        "id": "xiami-s1",
+        "title": "你的青春，因何结束？",
+        "publisher": "澎湃新闻",
+        "url": "https://m.thepaper.cn/newsDetail_forward_10673626",
+        "published_at": null,
+        "source_type": "official-statement-reprint",
+        "supports": ["2021-02-05 停止播放器服务", "官方对错失关键机会与版权内容不足的说明", "5 亿多张歌单与音乐数据库"]
+      },
+      {
+        "id": "xiami-s2",
+        "title": "快看｜虾米音乐发布告别信，2月5日将停止服务",
+        "publisher": "界面新闻",
+        "url": "https://www.jiemian.com/article/5497913.html",
+        "published_at": null,
+        "source_type": "reporting",
+        "supports": ["关停时间表", "音螺平台后续方向", "官方告别声明内容"]
+      },
+      {
+        "id": "xiami-s3",
+        "title": "2008-2021：虾米音乐编年史",
+        "publisher": "36氪",
+        "url": "https://www.36kr.com/p/1083776573442305",
+        "published_at": null,
+        "source_type": "retrospective",
+        "supports": ["2008 年正式上线", "2013 年进入阿里体系", "音乐人平台", "版权与组织路线变化的历史背景"]
+      },
+      {
+        "id": "xiami-s4",
+        "title": "腾讯放弃音乐版权独家授权，歌迷喊话网易云",
+        "publisher": "澎湃新闻 / 红星新闻",
+        "url": "https://www.thepaper.cn/newsDetail_forward_14305515",
+        "published_at": null,
+        "source_type": "reporting",
+        "supports": ["虾米曲风 taxonomy 与专辑/音乐人资料特点", "版权竞争背景"]
+      },
+      {
+        "id": "xiami-s5",
+        "title": "虾米音乐，漫长的告别",
+        "publisher": "界面新闻",
+        "url": "https://www.jiemian.com/article/5503062.html",
+        "published_at": null,
+        "source_type": "retrospective",
+        "supports": ["长尾与多元化推荐的产品取向", "产品定位与市场竞争的分析"]
+      }
+    ]
   },
   {
     "id": "artifact-03",
     "name": "百度空间",
     "category": "待分类",
-    "lifecycle": {
-      "born": null,
-      "ended": null,
-      "status": "待核验"
-    },
+    "lifecycle": { "born": null, "ended": null, "status": "待核验" },
     "verification_status": "demo-unverified",
     "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
-    "product_dna": [
-      "待研究"
-    ],
-    "why_it_mattered": [
-      "待研究"
-    ],
-    "why_it_disappeared": [
-      "待研究"
-    ],
-    "what_survived": [
-      "待研究"
-    ],
-    "ai_changes": [
-      "待研究"
-    ],
-    "revival": {
-      "score": null,
-      "score_status": "Demo score — methodology under development",
-      "blueprint": {
-        "keep": [
-          "待生成"
-        ],
-        "kill": [
-          "待生成"
-        ],
-        "ai_mutation": [
-          "待生成"
-        ],
-        "mvp_features": [
-          "待生成"
-        ]
-      }
-    },
+    "product_dna": ["待研究"],
+    "why_it_mattered": ["待研究"],
+    "why_it_disappeared": ["待研究"],
+    "what_survived": ["待研究"],
+    "ai_changes": ["待研究"],
+    "revival": { "score": null, "score_status": "Demo score — methodology under development", "blueprint": { "keep": ["待生成"], "kill": ["待生成"], "ai_mutation": ["待生成"], "mvp_features": ["待生成"] } },
     "rights_status": "unknown",
     "sources": []
   },
@@ -144,46 +153,15 @@
     "id": "artifact-04",
     "name": "开心网",
     "category": "待分类",
-    "lifecycle": {
-      "born": null,
-      "ended": null,
-      "status": "待核验"
-    },
+    "lifecycle": { "born": null, "ended": null, "status": "待核验" },
     "verification_status": "demo-unverified",
     "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
-    "product_dna": [
-      "待研究"
-    ],
-    "why_it_mattered": [
-      "待研究"
-    ],
-    "why_it_disappeared": [
-      "待研究"
-    ],
-    "what_survived": [
-      "待研究"
-    ],
-    "ai_changes": [
-      "待研究"
-    ],
-    "revival": {
-      "score": null,
-      "score_status": "Demo score — methodology under development",
-      "blueprint": {
-        "keep": [
-          "待生成"
-        ],
-        "kill": [
-          "待生成"
-        ],
-        "ai_mutation": [
-          "待生成"
-        ],
-        "mvp_features": [
-          "待生成"
-        ]
-      }
-    },
+    "product_dna": ["待研究"],
+    "why_it_mattered": ["待研究"],
+    "why_it_disappeared": ["待研究"],
+    "what_survived": ["待研究"],
+    "ai_changes": ["待研究"],
+    "revival": { "score": null, "score_status": "Demo score — methodology under development", "blueprint": { "keep": ["待生成"], "kill": ["待生成"], "ai_mutation": ["待生成"], "mvp_features": ["待生成"] } },
     "rights_status": "unknown",
     "sources": []
   },
@@ -191,46 +169,15 @@
     "id": "artifact-05",
     "name": "Flash 小游戏生态",
     "category": "待分类",
-    "lifecycle": {
-      "born": null,
-      "ended": null,
-      "status": "待核验"
-    },
+    "lifecycle": { "born": null, "ended": null, "status": "待核验" },
     "verification_status": "demo-unverified",
     "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
-    "product_dna": [
-      "待研究"
-    ],
-    "why_it_mattered": [
-      "待研究"
-    ],
-    "why_it_disappeared": [
-      "待研究"
-    ],
-    "what_survived": [
-      "待研究"
-    ],
-    "ai_changes": [
-      "待研究"
-    ],
-    "revival": {
-      "score": null,
-      "score_status": "Demo score — methodology under development",
-      "blueprint": {
-        "keep": [
-          "待生成"
-        ],
-        "kill": [
-          "待生成"
-        ],
-        "ai_mutation": [
-          "待生成"
-        ],
-        "mvp_features": [
-          "待生成"
-        ]
-      }
-    },
+    "product_dna": ["待研究"],
+    "why_it_mattered": ["待研究"],
+    "why_it_disappeared": ["待研究"],
+    "what_survived": ["待研究"],
+    "ai_changes": ["待研究"],
+    "revival": { "score": null, "score_status": "Demo score — methodology under development", "blueprint": { "keep": ["待生成"], "kill": ["待生成"], "ai_mutation": ["待生成"], "mvp_features": ["待生成"] } },
     "rights_status": "unknown",
     "sources": []
   },
@@ -238,46 +185,15 @@
     "id": "artifact-06",
     "name": "早期独立论坛生态",
     "category": "待分类",
-    "lifecycle": {
-      "born": null,
-      "ended": null,
-      "status": "待核验"
-    },
+    "lifecycle": { "born": null, "ended": null, "status": "待核验" },
     "verification_status": "demo-unverified",
     "summary": "UI demo placeholder. Historical claims must be researched and sourced before publication.",
-    "product_dna": [
-      "待研究"
-    ],
-    "why_it_mattered": [
-      "待研究"
-    ],
-    "why_it_disappeared": [
-      "待研究"
-    ],
-    "what_survived": [
-      "待研究"
-    ],
-    "ai_changes": [
-      "待研究"
-    ],
-    "revival": {
-      "score": null,
-      "score_status": "Demo score — methodology under development",
-      "blueprint": {
-        "keep": [
-          "待生成"
-        ],
-        "kill": [
-          "待生成"
-        ],
-        "ai_mutation": [
-          "待生成"
-        ],
-        "mvp_features": [
-          "待生成"
-        ]
-      }
-    },
+    "product_dna": ["待研究"],
+    "why_it_mattered": ["待研究"],
+    "why_it_disappeared": ["待研究"],
+    "what_survived": ["待研究"],
+    "ai_changes": ["待研究"],
+    "revival": { "score": null, "score_status": "Demo score — methodology under development", "blueprint": { "keep": ["待生成"], "kill": ["待生成"], "ai_mutation": ["待生成"], "mvp_features": ["待生成"] } },
     "rights_status": "unknown",
     "sources": []
   }
