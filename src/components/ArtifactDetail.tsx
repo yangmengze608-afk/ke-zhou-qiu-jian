@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowDownRight, ExternalLink, Plus, X } from 'lucide-react'
 import type { CatalogArtifact } from '../data/catalog'
 import type { Artifact } from '../types'
+import { RevivalAssessmentPanel } from './RevivalAssessmentPanel'
 
 const rows: [string, keyof Pick<Artifact, 'product_dna'|'why_it_mattered'|'why_it_disappeared'|'what_survived'|'ai_changes'>][] = [
   ['Product DNA', 'product_dna'], ['它为何重要', 'why_it_mattered'], ['为何消失', 'why_it_disappeared'], ['留下了什么', 'what_survived'], ['AI 改变了什么', 'ai_changes'],
@@ -36,7 +37,7 @@ export function ArtifactDetail({ artifact, onClose, onRevive, onSalvage, isSalva
       <div className={`verification verification-${artifact.verification_status}`}>{verificationCopy[artifact.verification_status]}</div>
       <p className="detail-intro">{artifact.summary}</p>
       {rows.map(([label,key]) => <section className="detail-row" key={key}><h3>{label}</h3><ul>{artifact[key].map(item => <li key={item}>{item}</li>)}</ul></section>)}
-      <section className="score"><span>Revival Score</span><strong>{artifact.revival.score ?? '—'}</strong><small>{artifact.revival.score_status}</small></section>
+      <RevivalAssessmentPanel artifactId={artifact.id} />
       <div className="detail-actions"><button className="salvage-link" onClick={() => onSalvage(artifact)}><Plus size={17}/>{isSalvaged ? '已在打捞篓 · 点击移出' : '加入打捞篓'}</button><button className="revive-link" onClick={() => onRevive(artifact)}><span><small>NEXT / REVIVAL LAB</small>把「{artifact.name}」带去重新计算</span><ArrowDownRight size={20}/></button></div>
       <section className="evidence-block"><div className="evidence-head"><span>EVIDENCE / SOURCES</span><strong>{artifact.sources.length} 条 · {sourceStatus[artifact.verification_status]}</strong></div>{artifact.sources.length > 0 ? <ol>{artifact.sources.map(source => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer"><span>{source.publisher}</span>{source.title}<ExternalLink size={12}/></a></li>)}</ol> : <p>该档案尚未进入正式考据流程。</p>}<p className="rights-note"><span>RIGHTS</span>{artifact.rights_status}</p></section>
     </motion.aside>

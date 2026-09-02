@@ -5,6 +5,7 @@ import './styles.css'
 import './flow.css'
 import './living-river.css'
 import './v6.css'
+import './revival-score.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode><App /></StrictMode>,
