@@ -8,6 +8,7 @@ import { RiverSite } from './components/RiverSite'
 import { SalvageBasket } from './components/SalvageBasket'
 import { ArtifactDetail } from './components/ArtifactDetail'
 import { BlueprintModal } from './components/BlueprintModal'
+import { TTPlayerRevivalConcept } from './components/TTPlayerRevivalConcept'
 
 const repoUrl = 'https://github.com/yangmengze608-afk/ke-zhou-qiu-jian'
 type Palette = 'celadon' | 'ivory' | 'mist'
@@ -18,6 +19,7 @@ function App() {
   const [salvaged, setSalvaged] = useState<CatalogArtifact[]>([])
   const [basketOpen, setBasketOpen] = useState(false)
   const [blueprint, setBlueprint] = useState(false)
+  const [ttConceptOpen, setTtConceptOpen] = useState(false)
   const [notice, setNotice] = useState('')
   const [palette, setPalette] = useState<Palette>('celadon')
   const { scrollYProgress } = useScroll()
@@ -27,7 +29,7 @@ function App() {
 
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { setSelected(null); setBlueprint(false); setBasketOpen(false) }
+      if (e.key === 'Escape') { setSelected(null); setBlueprint(false); setBasketOpen(false); setTtConceptOpen(false) }
     }
     addEventListener('keydown', close)
     return () => removeEventListener('keydown', close)
@@ -45,6 +47,11 @@ function App() {
   })
   const sendToRevival = (artifact: CatalogArtifact) => { setRevivalTargets([artifact]); setSelected(null); scrollToRevival() }
   const sendBasketToRevival = () => { if (!salvaged.length) return; setRevivalTargets(salvaged); setBasketOpen(false); scrollToRevival() }
+  const openConcept = (artifact: CatalogArtifact) => {
+    if (artifact.id !== 'artifact-09') return
+    setBlueprint(false)
+    setTtConceptOpen(true)
+  }
 
   return <main className="app-shell" data-palette={palette}>
     <FluidCanvas />
@@ -65,11 +72,12 @@ function App() {
 
     <section className="manifesto" id="methodology"><p className="eyebrow">05 / CLEAN ROOM MANIFESTO</p><div><h2>记住消失，<br/>不等于占有遗物。</h2><div className="manifesto-copy"><p>“刻舟求剑”不是盗版资源仓库。</p><p>不托管 ROM、破解资源、泄露源码，不复制整站内容；不把“停止维护”理解为版权消失。我们以 metadata、来源索引、历史研究和产品思想分析为主，Revival 偏向 clean-room reimplementation。</p><p className="rights">每条正式记录都应拥有可审计来源与 rights_status。</p></div></div></section>
 
-    <footer id="about"><div><strong>刻舟求剑</strong><span>KE ZHOU QIU JIAN</span></div><div className="footer-links"><a href={repoUrl} target="_blank" rel="noreferrer"><GitBranch size={15}/> GitHub</a><a href={`${repoUrl}/issues/new?title=${encodeURIComponent('提交一个被遗忘的中文互联网产品 / Forgotten product')}`} target="_blank" rel="noreferrer">Submit a forgotten product</a><a href="#site">Riverbed Site</a><a href="#methodology">Methodology</a><button onClick={()=>nudge('MVP 0.6 · River / Site / Salvage / Revival')}>About</button></div><small>Product Archaeology for the Chinese Internet · MVP 0.6</small></footer>
+    <footer id="about"><div><strong>刻舟求剑</strong><span>KE ZHOU QIU JIAN</span></div><div className="footer-links"><a href={repoUrl} target="_blank" rel="noreferrer"><GitBranch size={15}/> GitHub</a><a href={`${repoUrl}/issues/new?title=${encodeURIComponent('提交一个被遗忘的中文互联网产品 / Forgotten product')}`} target="_blank" rel="noreferrer">Submit a forgotten product</a><a href="#site">Riverbed Site</a><a href="#methodology">Methodology</a><button onClick={()=>nudge('MVP 0.9 · River / Site / Readiness / Concept')}>About</button></div><small>Product Archaeology for the Chinese Internet · MVP 0.9</small></footer>
 
     <SalvageBasket open={basketOpen} artifacts={salvaged} onOpen={()=>setBasketOpen(true)} onClose={()=>setBasketOpen(false)} onRemove={toggleSalvage} onSend={sendBasketToRevival}/>
     <ArtifactDetail artifact={selected} onClose={()=>setSelected(null)} onRevive={sendToRevival} onSalvage={toggleSalvage} isSalvaged={selected ? salvagedIds.has(selected.id) : false}/>
-    <BlueprintModal open={blueprint} artifacts={revivalTargets} onClose={()=>setBlueprint(false)}/>
+    <BlueprintModal open={blueprint} artifacts={revivalTargets} onClose={()=>setBlueprint(false)} onOpenConcept={openConcept}/>
+    <TTPlayerRevivalConcept open={ttConceptOpen} onClose={()=>setTtConceptOpen(false)}/>
     <div className={`toast ${notice?'show':''}`} role="status">{notice}</div>
   </main>
 }
