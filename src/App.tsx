@@ -8,6 +8,7 @@ import { RiverSite } from './components/RiverSite'
 import { SalvageBasket } from './components/SalvageBasket'
 import { ArtifactDetail } from './components/ArtifactDetail'
 import { BlueprintModal } from './components/BlueprintModal'
+import { ShengcangMVP } from './components/ShengcangMVP'
 
 const repoUrl = 'https://github.com/yangmengze608-afk/ke-zhou-qiu-jian'
 type Palette = 'celadon' | 'ivory' | 'mist'
@@ -18,6 +19,7 @@ function App() {
   const [salvaged, setSalvaged] = useState<CatalogArtifact[]>([])
   const [basketOpen, setBasketOpen] = useState(false)
   const [blueprint, setBlueprint] = useState(false)
+  const [shengcangOpen, setShengcangOpen] = useState(false)
   const [notice, setNotice] = useState('')
   const [palette, setPalette] = useState<Palette>('celadon')
   const { scrollYProgress } = useScroll()
@@ -27,7 +29,7 @@ function App() {
 
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { setSelected(null); setBlueprint(false); setBasketOpen(false) }
+      if (e.key === 'Escape') { setSelected(null); setBlueprint(false); setBasketOpen(false); setShengcangOpen(false) }
     }
     addEventListener('keydown', close)
     return () => removeEventListener('keydown', close)
@@ -45,6 +47,7 @@ function App() {
   })
   const sendToRevival = (artifact: CatalogArtifact) => { setRevivalTargets([artifact]); setSelected(null); scrollToRevival() }
   const sendBasketToRevival = () => { if (!salvaged.length) return; setRevivalTargets(salvaged); setBasketOpen(false); scrollToRevival() }
+  const openShengcang = () => { setBlueprint(false); setShengcangOpen(true) }
 
   return <main className="app-shell" data-palette={palette}>
     <FluidCanvas />
@@ -69,7 +72,8 @@ function App() {
 
     <SalvageBasket open={basketOpen} artifacts={salvaged} onOpen={()=>setBasketOpen(true)} onClose={()=>setBasketOpen(false)} onRemove={toggleSalvage} onSend={sendBasketToRevival}/>
     <ArtifactDetail artifact={selected} onClose={()=>setSelected(null)} onRevive={sendToRevival} onSalvage={toggleSalvage} isSalvaged={selected ? salvagedIds.has(selected.id) : false}/>
-    <BlueprintModal open={blueprint} artifacts={revivalTargets} onClose={()=>setBlueprint(false)}/>
+    <BlueprintModal open={blueprint} artifacts={revivalTargets} onClose={()=>setBlueprint(false)} onOpenConcept={openShengcang}/>
+    <ShengcangMVP open={shengcangOpen} onClose={()=>setShengcangOpen(false)}/>
     <div className={`toast ${notice?'show':''}`} role="status">{notice}</div>
   </main>
 }
