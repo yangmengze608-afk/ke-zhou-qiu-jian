@@ -107,6 +107,12 @@ A practical gate for the prototype:
 
 If the rescue rate is weak, do not add a heavier audio model just to protect the concept. Reconsider the product thesis first.
 
+## Current comparison design
+
+Keyword/path retrieval stays visible as the default baseline. The semantic layer is opt-in and only replaces the ranking after the user explicitly runs a semantic query. Result explanations expose the cosine-like similarity value as a **similarity signal, not a probability**.
+
+The next refinement, if this experiment is worth keeping, is a side-by-side or toggle comparison that preserves both ranked lists for the same query.
+
 ## Next build only if v0.2 passes
 
 1. Parse real embedded metadata locally.
