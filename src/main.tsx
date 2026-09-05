@@ -8,6 +8,7 @@ import './v6.css'
 import './revival-score.css'
 import './hero-black.css'
 import './shengcang-mvp.css'
+import './concept-launch.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode><App /></StrictMode>,
