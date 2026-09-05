@@ -1,0 +1,101 @@
+/* Hero black-type hierarchy approved from the visual preview.
+   Keep the museum palette and motion system; only strengthen first-screen typography. */
+.app-shell{
+  --hero-black:#111111;
+  --hero-black-72:rgba(17,17,17,.72);
+  --hero-black-58:rgba(17,17,17,.58);
+  --hero-line:rgba(17,17,17,.18);
+}
+
+/* Primary title: unmistakably black, no haze. */
+.app-shell .hero h1,
+.app-shell .hero h1 span{
+  color:var(--hero-black)!important;
+  text-shadow:none!important;
+}
+
+/* Secondary copy remains dark but visually subordinate. */
+.app-shell .hero .eyebrow,
+.app-shell .hero-bottom p,
+.app-shell .hero .enter{
+  color:var(--hero-black-72)!important;
+}
+
+.app-shell .hero-bottom p:first-child{
+  color:var(--hero-black)!important;
+}
+
+.app-shell .hero-bottom p:last-child{
+  color:var(--hero-black-72)!important;
+}
+
+/* Navigation and museum metadata: black-grey rather than palette-coloured text. */
+.app-shell .nav,
+.app-shell .nav a,
+.app-shell .nav button,
+.app-shell .nav .ctr,
+.app-shell .nav .no,
+.app-shell .palette-switch,
+.app-shell .palette-switch span,
+.app-shell .depth{
+  color:var(--hero-black-58)!important;
+}
+
+.app-shell .nav .mark{
+  color:var(--hero-black)!important;
+}
+
+.app-shell .hero .enter{
+  border-bottom-color:rgba(17,17,17,.42)!important;
+}
+
+.app-shell .hero .enter:hover{
+  color:var(--hero-black)!important;
+  border-bottom-color:var(--hero-black)!important;
+}
+
+/* Keep palette swatches coloured; only darken their UI framing. */
+.app-shell .palette-dot{
+  border-color:rgba(17,17,17,.24)!important;
+}
+
+.app-shell .palette-dot.active{
+  outline-color:rgba(17,17,17,.72)!important;
+}
+
+/* Retain the red/gold ring accents, but make the structural rings darker and clearer. */
+.app-shell .hero-ring,
+.app-shell .hero-ring:before,
+.app-shell .hero-ring:after,
+.app-shell .hero-ring span,
+.app-shell .hero-ring i{
+  border-color:var(--hero-line);
+}
+
+.app-shell .hero-ring span:first-child{
+  border-top-color:var(--accent);
+  border-right-color:transparent;
+}
+
+.app-shell .hero-ring span:nth-child(2){
+  border-bottom-color:var(--gold);
+  border-left-color:transparent;
+}
+
+.app-shell .hero-ring i{
+  border:0;
+  background:var(--accent);
+}
+
+@media(max-width:860px){
+  .app-shell .nav,
+  .app-shell .nav a,
+  .app-shell .nav button,
+  .app-shell .palette-switch,
+  .app-shell .palette-switch span,
+  .app-shell .depth,
+  .app-shell .hero .eyebrow,
+  .app-shell .hero-bottom p{
+    color:var(--hero-black-72)!important;
+  }
+}
