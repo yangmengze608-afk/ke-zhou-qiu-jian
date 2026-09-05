@@ -7,6 +7,7 @@ import './living-river.css'
 import './v6.css'
 import './revival-score.css'
 import './hero-black.css'
+import './shengcang-mvp.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode><App /></StrictMode>,
