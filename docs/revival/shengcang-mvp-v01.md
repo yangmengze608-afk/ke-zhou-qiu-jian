@@ -1,5 +1,7 @@
 # 声藏 / SHENGCANG — MVP v0.1
 
+> Historical note: v0.1 established the real local-file loop. The active semantic experiment is documented in `shengcang-mvp-v02.md`.
+
 ## Product decision
 
 Do not revive 千千静听 as another streaming player.
@@ -27,7 +29,7 @@ Everything else is subordinate to this loop.
 - Fake 24k-track library and fake playback — removed from the functional proof.
 - Commercial catalog, licensing battle, social graph — explicitly out of scope.
 
-## What is actually functional in v0.1
+## What v0.1 proved
 
 The browser prototype can:
 
@@ -40,31 +42,15 @@ The browser prototype can:
 
 No audio is intentionally uploaded by the prototype.
 
-## What is deliberately NOT claimed yet
+## What happened next
 
-Semantic memory search is not implemented yet.
+v0.1 explicitly left semantic memory search unimplemented rather than faking AI output.
 
-The current retrieval layer is lexical/path-based. The UI labels that limitation directly rather than presenting fake AI output.
+That next experiment now exists in **MVP v0.2**:
 
-The next technical experiment should add a local semantic layer and test whether it materially improves retrieval over ordinary file search.
+- keyword/path retrieval remains the baseline;
+- multilingual text embeddings run in the browser after an opt-in model download;
+- semantic ranking is evaluated only on local textual metadata/path context;
+- audio-content understanding is still out of scope.
 
-## Validation gates
-
-Before building a desktop app, test these gates:
-
-1. **Import friction** — can a new user reach the first playable result in under 60 seconds?
-2. **Private-library willingness** — will users actually select a real folder rather than only view sample data?
-3. **Retrieval delta** — does a semantic layer recover songs users fail to find with filename/path search?
-4. **Trust** — do users understand why a result matched and where their audio data stays?
-5. **Repeat value** — after the novelty wears off, is the search useful often enough to justify a dedicated app?
-
-If semantic retrieval does not create clear value above Finder/Explorer/standard player search, the Revival thesis should be downgraded rather than protected by nostalgia.
-
-## Next build only if gates hold
-
-- local metadata parser;
-- local embeddings for titles/tags/folder context;
-- optional local audio embeddings;
-- persistent local index;
-- desktop packaging;
-- metadata repair as background infrastructure, not a separate product center.
+See `docs/revival/shengcang-mvp-v02.md` for the current implementation and go/no-go criteria.
